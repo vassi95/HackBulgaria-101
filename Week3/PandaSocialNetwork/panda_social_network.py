@@ -16,6 +16,12 @@ class Panda:
         is_valid = valid_email(email)
         if is_valid:
             self.email = email
+        if not isinstance(name, str):
+            raise TypeError
+        if not isinstance(email, str):
+            raise TypeError
+        if not isinstance(gender, str):
+            raise TypeError
 
     def isMale(self):
         if self.gender == 'male':
@@ -159,7 +165,7 @@ class PandaSocialNetwork:
         with open(path, 'r') as f1:
             self.data = json.load(f1)
         for pandas in self.data:
-            self.add_panda(eval(pandas))
+            self.add_panda(pandas)
             for friends in self.data[pandas]:
                 self.net[eval(pandas)].append(eval(friends))
 
