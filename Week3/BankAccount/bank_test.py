@@ -37,11 +37,6 @@ class Test_BankAccount(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.rado.withdraw(2000)
 
-    def test_string(self):
-        self.assertEqual(str(self.ivo),
-                         "Bank account for {} with balance of {}{}".format(
-            self.ivo.name, self.ivo.amount, self.ivo.currency))
-
     def test_int(self):
         self.assertTrue(int(self.ivo.amount) == 0)
         self.assertTrue(int(self.rado.amount) == 1000)
