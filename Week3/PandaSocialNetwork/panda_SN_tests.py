@@ -79,7 +79,7 @@ class TestSocialNetwork(unittest.TestCase):
         self.assertTrue(self.net.are_connected(self.ivo, self.rado))
         self.assertFalse(self.net.are_connected(self.ivo, self.tony))
 
-    def test_how_many_gender_in_net(self):
+    def test_how_many_gender_in_network(self):
         self.net.make_friends(self.ivo, self.rado)
         self.net.make_friends(self.rado, self.tony)
         toshko = Panda("Dimcho", "dimcho@pandamail.com", "male")
