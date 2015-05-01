@@ -12,7 +12,7 @@ class Song:
         self._length = length
 
     def __str__(self):
-        return "{} - {} from {} - {}".format(self.artist, self.title, self.album, self.length)
+        return "{} - {} from {} - {}".format(self._artist, self._title, self._album, self._length)
 
     def __eq__(self, other):
         return self.__hash__() == other.__hash__()
@@ -21,7 +21,7 @@ class Song:
         return hash(self.__str__())
 
     def length_of_song(self, seconds=False, minutes=False, hours=False):
-        part = self.length.split(':')
+        part = self._length.split(':')
         length1 = len(part)
         if length1 == 2:
             part = ["0"] + part
@@ -32,7 +32,7 @@ class Song:
         elif hours is True:
             return int(part[0])
         else:
-            return self.length
+            return self._length
 
 
 class Playlist:
@@ -62,7 +62,7 @@ class Playlist:
     def total_length(self):
         total_len = 0
         for song in self.songs:
-            total_len += song.length(seconds=True)
+            total_len += song._length(seconds=True)
         hours = total_len // 3600
         total_len -= hours
         minutes = total_len // 60
@@ -90,8 +90,6 @@ class Playlist:
         return random_song
 
     def next_song(self):
-        if self.shuffle is True:
-            return self.shuffle()
         if not self.current_song < len(self.songs) and self.repeat is True:
             self.current_song = 0
         song = self.songs[self.current_song]
