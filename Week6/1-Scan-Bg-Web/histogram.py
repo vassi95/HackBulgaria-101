@@ -37,11 +37,9 @@ class Histogram:
                     self.add("lighttpd")
         keys = list(self.dict.keys())
         a = list(range(len(keys)))
-        plt.bar(a, list(self.dict.values()))
+        plt.bar(a, list(self.dict.values()), align = 'center')
         plt.xticks(a, keys)
         plt.title("All .bg servers")
-        plt.xlabel("Server")
-        plt.ylabel("Count")
         plt.savefig("histogram.png")
 
 
