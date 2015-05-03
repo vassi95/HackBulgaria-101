@@ -58,6 +58,7 @@ if __name__ == '__main__':
     a = Employees()
     b = Table()
     b.create()
+    b.fill_in_table()
     a.list_employees()
     print('\n')
     a.monthly_spending()
